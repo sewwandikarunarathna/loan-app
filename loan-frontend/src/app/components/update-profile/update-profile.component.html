@@ -1,0 +1,53 @@
+<div>
+    <div *ngIf="currentProfile.id" class="edit-form">
+      <h4>Update Profile</h4>
+      <form>
+            <div class="form-group">
+            <label for="address">Address</label>
+            <input
+                type="text"
+                class="form-control"
+                id="address"
+                [(ngModel)]="currentProfile.address"
+                name="address"
+            />
+            </div>
+            <div class="form-group">
+            <label for="phoneNumber">Contact Number</label>
+            <input
+                type="text"
+                class="form-control"
+                id="phoneNumber"
+                [(ngModel)]="currentProfile.phoneNumber"
+                name="phoneNumber"
+            />
+            </div>
+            <div class="form-group">
+                <label for="nic">NIC Number</label>
+                <input
+                type="text"
+                class="form-control"
+                id="nic"
+                [(ngModel)]="currentProfile.nic"
+                name="nic"
+                />
+            </div>
+         
+        </form>
+
+          <button type="submit" class="btn btn-success"
+            (click)="updateProfile()">
+            Update Profile
+          </button>
+          <button class="btn btn-info" ><a routerLink="/profile"
+             class="back">Back to Profile</a></button>
+
+          <p>{{ message }}</p>
+        </div>
+      
+        <div *ngIf="!currentProfile.id">
+          <br />
+          <p>Cannot access this Profile...</p>
+        </div>
+      </div>
+

@@ -1,0 +1,22 @@
+h1{
+    text-align: center;
+    margin: 10px;
+}
+
+.submit-form{
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+}
+
+button{
+    margin: 10px 0;
+}
+
+label{
+    font-weight: 600;
+    margin: 7px 0 0 0;
+}

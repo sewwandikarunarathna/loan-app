@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-10">
+        <h1>Requested Loan History</h1>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                   
+                    <th scope="col">Loan Type</th>
+                    <th scope="col">Loan Amount</th>
+                    <th scope="col">Interest Rate</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">Created Date</th>
+                    
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr *ngFor = "let column of loanrequests">
+                   
+                    <td>
+                        {{column.loanId.type}}
+                    </td>
+                    <td>
+                        {{column.loanId.amount}}
+                    </td>
+                    <td>
+                        {{column.loanId.interest}}
+                    </td>
+                    <td>
+                        {{column.loanId.duration}}
+                    </td>
+                    <td>
+                        {{column.createdAt.substring(0,10)}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

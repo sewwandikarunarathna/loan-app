@@ -1,0 +1,68 @@
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by type"
+          [(ngModel)]="type"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchType()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+        <h4>Loans List</h4>
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let loan of loans; let i = index"
+            [class.active]="i == currentIndex"
+            (click)="setActiveLoan(loan, i)"
+          >
+            {{ loan.type }}
+          </li>
+        </ul>
+    
+        <button class="m-3 btn btn-sm btn-danger" (click)="removeAllLoans()">
+          Remove All
+        </button>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="currentLoan">
+          <h4>Loan</h4>
+          <div>
+            <label><strong>Type:</strong></label> {{ currentLoan.type }}
+          </div>
+          <div>
+            <label><strong>Amount:</strong></label>
+            {{ currentLoan.amount }}
+          </div>
+          <div>
+            <label><strong>Interest Rate:</strong></label>
+            {{currentLoan.interest }}
+          </div>
+          <div>
+            <label><strong>Duration:</strong></label>
+            {{currentLoan.duration }}
+          </div>
+    
+          <button class="btn btn-success"><a routerLink="/loans/{{ currentLoan.id }}">
+            Edit
+          </a></button>
+          
+        </div>
+        <div *ngIf="!currentLoan">
+            <br />
+            <p>Please click on a Loan...</p>
+        </div>
+        </div>
+    </div>
+

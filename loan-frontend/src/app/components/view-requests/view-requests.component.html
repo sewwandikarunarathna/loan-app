@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-10">
+        <h1>Requested Loans</h1>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Loan Type</th>
+                    <th scope="col">Loan Amount</th>
+                    <th scope="col">Interest Rate</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr *ngFor = "let column of loanrequests">
+                   
+                    <td>
+                        {{column.userId.name}}
+                    </td>
+                    <td>
+                        {{column.loanId.type}}
+                    </td>
+                    <td>
+                        {{column.loanId.amount}}
+                    </td>
+                    <td>
+                        {{column.loanId.interest}}
+                    </td>
+                    <td>
+                        {{column.loanId.duration}}
+                    </td>
+                    <td>
+                       <div *ngIf="isViewable"><button class="btn-default"  [disabled]="clicked" (click) = "updateStatus(column.id); clicked = true;">Approve</button></div>   |
+                        <div *ngIf="isClickable"><button class="btn-danger" (click) = "declineRequest(column.userId._id,column.loanId._id,column.id)">Decline</button></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

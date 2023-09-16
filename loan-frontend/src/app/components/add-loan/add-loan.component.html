@@ -1,0 +1,59 @@
+<div>
+    <h1>Add Loan</h1>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="type">Type</label>
+          <input
+            type="text"
+            class="form-control"
+            id="type"
+            required
+            [(ngModel)]="loan.type"
+            name="type"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input
+            class="form-control"
+            id="amount"
+            required
+            [(ngModel)]="loan.amount"
+            name="amount"
+          />
+        </div>
+
+        <div class="form-group">
+            <label for="interest">Interest Rate</label>
+            <input
+              class="form-control"
+              id="interest"
+              required
+              [(ngModel)]="loan.interest"
+              name="interest"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="duration">Duration</label>
+            <input
+              class="form-control"
+              id="duration"
+              required
+              [(ngModel)]="loan.duration"
+              name="duration"
+            />
+        </div>
+
+            <button (click)="saveLoan()" class="btn btn-success">Submit</button>
+      </div>
+
+        <div *ngIf="submitted">
+        <h4>Loan was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newLoan()">Add</button>
+        </div>
+    </div>
+    
+</div>
