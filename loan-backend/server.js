@@ -2,6 +2,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const dotenv = require('dotenv');
+
+//call the .env function
+dotenv.config();
+
 
 const app = express();
 
@@ -23,7 +28,7 @@ const db = require("./app/models");
 const { authJwt } = require("./app/middleware");
 const Role = db.role;
 
-db.mongoose.connect('mongodb+srv://sewwandik:hlfMj7NJ92zhN9CR@loandatabase.dqaksyh.mongodb.net/loandb', {
+db.mongoose.connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -100,7 +105,4 @@ app.listen(PORT, () => {
     });
   }
 
-  //pw - hlfMj7NJ92zhN9CR
-  //usernme - 
-  //conn string - mongodb+srv://sewwandik:<password>@loandatabase.dqaksyh.mongodb.net/
-  //previous conn string - mongodb+srv://Sewwandi:p3z-k7-B98NVDzF@assignment.35hfy.mongodb.net/loandb
+  
